@@ -34,3 +34,4 @@ coverage/
 
 # SvelteKit (if ever migrated)
 .svelte-kit/
+package-lock.json

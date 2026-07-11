@@ -1,27 +1,14 @@
 # Netlify configuration for Chipsy Top Manager
-# https://docs.netlify.com/configure-builds/file-based-configuration/
 
 [build]
-  base = "."
-  command = "npm install && npm run build"
+  command = "npm run build"
   publish = "dist"
 
 [build.environment]
   NODE_VERSION = "20"
 
-# SPA fallback — redirect all routes to index.html for hash routing
+# SPA fallback for hash-based routing
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-
-# Headers for caching and performance
-[[headers]]
-  for = "/assets/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-  for = "/*.png"
-  [headers.values]
-    Cache-Control = "public, max-age=86400"
