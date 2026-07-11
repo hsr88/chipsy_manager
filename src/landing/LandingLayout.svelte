@@ -88,7 +88,15 @@
 
       <div class="mt-8 pt-6 text-center" style="border-top: 1px solid #4A3018;">
         <p style="color: #685838; font-size: 1rem;">
-          &copy; 2026 Chipsy Top Manager. Darmowa polska gra przeglądarkowa typu tycoon o produkcji chipsów ziemniaczanych.
+          &copy; 2026 Chipsy Top Manager. Darmowa polska gra przeglądarkowa typu tycoon o produkcji chipsow ziemniaczanych.
+        </p>
+        <p style="color: #685838; font-size: 0.9rem; margin-top: 0.5rem;">
+          Tworca:
+          <a href="https://github.com/hsr88/" target="_blank" rel="noopener" style="color: #E8A820;">hsr88</a>
+          |
+          <a href="https://github.com/hsr88/chipsy_manager" target="_blank" rel="noopener" style="color: #E8A820;">GitHub Repo</a>
+          |
+          <a href="https://github.com/hsr88/chipsy_manager/issues" target="_blank" rel="noopener" style="color: #E8A820;">Zglos blad</a>
         </p>
       </div>
     </div>

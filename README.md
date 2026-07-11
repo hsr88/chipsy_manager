@@ -1,53 +1,83 @@
 # Chipsy Top Manager
 
-> Darmowa polska gra przeglądarkowa typu tycoon / biznes menadżer o produkcji chipsow ziemniaczanych.
-> Zbuduj imperium chrupkow od malej fabryki do ogolnokrajowego lidera rynku!
+> Darmowa polska gra przeglądarkowa typu tycoon / biznes menadżer o produkcji chipsów ziemniaczanych.
+> Zbuduj imperium chrupków od małej fabryki do ogólnokrajowego lidera rynku!
 
-**Live demo:** [https://chipsy.top](https://chipsy.top)
+**Zagraj teraz:** [chipsy.top](https://chipsy.top)
+
+---
+
+## O grze
+
+Chipsy Top Manager to nowoczesny odpowiednik klasycznych gier menadżerskich (Football Manager, Theme Hospital), przeniesiony w świat produkcji chipsów ziemniaczanych. Gra łączy głębokie systemy zarządzania, decyzje strategiczne i długoterminowe planowanie — wszystko w lekkiej, przeglądarkowej formie z polskim klimatem.
+
+Rozpoczynasz jako właściciel małej fabryki z zespołem 5 pracowników i budżetem 120 000 PLN. Każdy tydzień to nowe decyzje: kogo zatrudnić, jaki smak badać, z kim podpisać kontrakt, czy wziąć kredyt. Losowe wydarzenia, konkurencja (Lay's, Crunchips) i zmieniający się rynek sprawiają, że każda rozgrywka jest inna.
+
+### Funkcje
+
+| System | Opis |
+|--------|------|
+| **Personel** | 5 ról, 5 atrybutów (0-100), system szkoleń, morale |
+| **Produkcja** | Linie produkcyjne, surowce (ziemniaki, olej, przyprawy), utrzymanie |
+| **Badania i Rozwój** | 10 smaków w 4 tierach (Podstawowe, Regionalne, Premium, Healthy) |
+| **Sprzedaż** | 5 kanałów dystrybucji (dyskontery, supermarkety, Żabka, eksport, online) |
+| **Finanse** | Szczegółowe raporty tygodniowe, podatek 19%, kredyty |
+| **Wydarzenia** | 18 typów losowych wydarzeń w 6 kategoriach |
+| **Zapis gry** | Automatyczny zapis w localStorage + ręczny save/load |
+
+### 10 Smaków do odblokowania
+
+Solone, Papryka, Ser i Cebulka (odblokowane od startu) + Kebab, Curry, Wasabi, Burak, Sól morska i ocet, Trufla, Jarmuż (do zbadania).
+
+---
 
 ## Stack technologiczny
 
-| Technologia | Zastosowanie |
-|-------------|-------------|
-| [Vite](https://vitejs.dev/) | Bundler + dev server |
-| [Svelte 5](https://svelte.dev/) | Framework UI (runes) |
-| [TypeScript](https://www.typescriptlang.org/) | Typowanie statyczne |
-| [Tailwind CSS v4](https://tailwindcss.com/) | Stylizacja |
-| [Lucide Svelte](https://lucide.dev/) | Ikony |
+| Technologia | Wersja | Zastosowanie |
+|-------------|--------|-------------|
+| [Vite](https://vitejs.dev/) | ^6.x | Bundler + dev server |
+| [Svelte 5](https://svelte.dev/) | ^5.x | Framework UI (runes) |
+| [TypeScript](https://www.typescriptlang.org/) | ^5.x | Typowanie statyczne |
+| [Tailwind CSS](https://tailwindcss.com/) | ^4.x | Stylizacja |
+| [Lucide Svelte](https://lucide.dev/) | ^0.x | Ikony |
+
+---
 
 ## Lokalny development
 
 ```bash
-# 1. Klonuj repo
-git clone https://github.com/TWOJ-USERNAME/chipsy-top-manager.git
-cd chipsy-top-manager
+# 1. Klonuj repozytorium
+git clone https://github.com/hsr88/chipsy_manager.git
+cd chipsy_manager
 
-# 2. Instaluj zaleznosci
+# 2. Instaluj zależności
 npm install
 
-# 3. Dev server (hot reload)
+# 3. Uruchom dev server (hot reload na localhost:5173)
 npm run dev
 
-# 4. Build produkcyjny
+# 4. Build produkcyjny (wynik w folderze dist/)
 npm run build
 ```
+
+---
 
 ## Struktura projektu
 
 ```
 src/
 ├── App.svelte              # Router: landing page vs gra
-├── GameApp.svelte          # Retro UI gry (sidebar + ekrany)
-├── main.ts                 # Entry point
-├── app.css                 # Global styles (retro pixel-art)
+├── GameApp.svelte          # Retro UI gry
+├── main.ts                 # Punkt wejścia
+├── app.css                 # Globalne style (retro pixel-art)
 ├── landing/                # Landing page (SEO-friendly)
-│   ├── LandingLayout.svelte
-│   ├── router.ts           # Hash-based router
-│   ├── HomePage.svelte
-│   ├── HowToPlay.svelte
-│   ├── FAQ.svelte
-│   └── About.svelte
-├── pages/                  # Ekrany gry
+│   ├── LandingLayout.svelte    # Nawigacja + stopka
+│   ├── router.ts               # Hash-based router
+│   ├── HomePage.svelte         # Strona główna
+│   ├── HowToPlay.svelte        # Poradnik "Jak grać"
+│   ├── FAQ.svelte              # Najczęstsze pytania
+│   └── About.svelte            # O grze + roadmapa
+├── pages/                  # Ekrany gry (7 sekcji)
 │   ├── DashboardPage.svelte
 │   ├── EmployeesPage.svelte
 │   ├── ProductionPage.svelte
@@ -55,52 +85,60 @@ src/
 │   ├── SalesPage.svelte
 │   ├── FinancesPage.svelte
 │   └── EventsPage.svelte
-├── lib/
-│   ├── types/              # TypeScript interfaces
-│   ├── data/               # Dane startowe
-│   ├── stores/             # Svelte 5 game store
-│   └── systems/            # Silnik symulacji
-public/
-└── hero-logo.png           # Pixel-art logo gry
+└── lib/
+    ├── types/              # Definicje TypeScript
+    ├── data/               # Dane startowe gry
+    ├── stores/             # Główny store (Svelte 5 runes)
+    └── systems/            # Silnik symulacji
 ```
 
-## Deploy
+---
 
-### Netlify (zalecane)
+## Jak mogę pomóc?
 
-1. Wypchnij kod na GitHub
-2. Zaloguj sie do [Netlify](https://app.netlify.com/)
-3. "Add new site" -> "Import an existing project"
-4. Wybierz swoje repo z GitHuba
-5. Build settings sa juz skonfigurowane w `netlify.toml`:
-   - Build command: `npm run build`
-   - Publish directory: `dist`
-6. Kliknij "Deploy site"
+Projekt jest open source i chętnie przyjmę wkład od społeczności! Oto jak możesz pomóc:
 
-Kazdy push na branch `main` automatycznie triggeruje nowy deploy!
+### Pomysły na usprawnienia (mile widziane PR!)
 
-### Vercel
+- [ ] Nowe smaki chipsów (np. Śmietanka i Kiełbasa, Chilli, Czosnek)
+- [ ] System marketingu i kampanii reklamowych
+- [ ] Ulepszanie linii produkcyjnych (automatyzacja)
+- [ ] Więcej wydarzeń losowych z decyzjami do podjęcia
+- [ ] Tabela wyników online (localStorage -> backend)
+- [ ] System osiągnięć i nagród
+- [ ] Tryb sandbox (nielimitowane zasoby do testowania)
+- [ ] Eksport do nowych regionów (Azja, Ameryka)
+- [ ] Wiele fabryk (multi-site management)
+- [ ] Lepszy system AI konkurencji (widoczne ruchy przeciwników)
+- [ ] Animacje pixel-artowe dla wydarzeń
+- [ ] Soundtrack 8-bit / chiptune
+- [ ] Tłumaczenia na inne języki (angielski, niemiecki)
 
-Podobnie jak Netlify - importuj repo, build command: `npm run build`, output: `dist`.
+### Zgłaszanie błędów
 
-### Kimi (obecnie)
+Jeśli znajdziesz błąd, utwórz [Issue](https://github.com/hsr88/chipsy_manager/issues) z opisem:
+1. Co się stało?
+2. Jakie były kroki do reprodukcji?
+3. Jaki był oczekiwany wynik?
+4. Zrzut ekranu (jeśli dotyczy)
 
-```bash
-npm run build
-# Wdróż folder dist/ przez interfejs Kimi
-```
+---
 
-## Systemy gry
+## Roadmapa
 
-| System | Opis |
-|--------|------|
-| **Personel** | 5 rol, 5 atrybutow (0-100), szkolenia, morale |
-| **Produkcja** | Linie produkcyjne, surowce, utrzymanie |
-| **R&D** | 10 smakow w 4 tierach, system jakosci |
-| **Sprzedaz** | 5 kanalow dystrybucji, kontrakty, negocjacje |
-| **Finanse** | Raporty tygodniowe, podatek 19%, kredyty |
-| **Wydarzenia** | 18 typow losowych wydarzen w 6 kategoriach |
+| Wersja | Planowane funkcje | Status |
+|--------|-------------------|--------|
+| **v1.0 (MVP)** | Dashboard, Personel, Produkcja, R&D, Sprzedaż, Finanse, Wydarzenia | Gotowe |
+| **v1.1** | Marketing, więcej smaków sezonowych, osiągnięcia | W planach |
+| **v1.2** | Giełda surowców, konkurencja AI, eksport do nowych regionów | W planach |
+| **v2.0** | Multi-site, franchising, tabela wyników online, sandbox | W planach |
+
+---
 
 ## Licencja
 
-MIT - gra jest w 100% darmowa i open source.
+MIT — gra jest w 100% darmowa i open source.
+
+---
+
+**Twórca:** [hsr88](https://github.com/hsr88/) | **Repo:** [github.com/hsr88/chipsy_manager](https://github.com/hsr88/chipsy_manager)
