@@ -9,6 +9,11 @@
   # Directory with built files
   publish = "dist"
 
+# Environment variables
+[build.environment]
+  NODE_VERSION = "20"
+  NPM_FLAGS = "--legacy-peer-deps"
+
 # SPA fallback — redirect all routes to index.html for hash routing
 [[redirects]]
   from = "/*"
