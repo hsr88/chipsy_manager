@@ -2,17 +2,12 @@
 # https://docs.netlify.com/configure-builds/file-based-configuration/
 
 [build]
-  # Directory to change to before building
   base = "."
-  # Build command
-  command = "npm run build"
-  # Directory with built files
+  command = "npm install && npm run build"
   publish = "dist"
 
-# Environment variables
 [build.environment]
   NODE_VERSION = "20"
-  NPM_FLAGS = "--legacy-peer-deps"
 
 # SPA fallback — redirect all routes to index.html for hash routing
 [[redirects]]
