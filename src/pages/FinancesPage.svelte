@@ -32,7 +32,7 @@
   const totalRepay = $derived(Math.round(loanAmount * 1.08));
 </script>
 
-<div class="space-y-6">
+<div class="space-y-3 md:space-y-6">
   <!-- Header -->
   <div class="flex items-center justify-between">
     <div class="flex items-center gap-3">
@@ -52,11 +52,11 @@
 
   <!-- Weekly Summary -->
   <div class="card">
-    <h2 class="font-semibold text-gray-100 mb-4 flex items-center gap-2">
+    <h2 class="font-semibold text-gray-100 mb-3 md:mb-4 flex items-center gap-2">
       <Receipt size={18} class="text-primary-400" />
       Podsumowanie Tygodniowe (Tydzień {gameStore.state.week})
     </h2>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 md:grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
       <!-- Revenue -->
       <div class="card bg-green-900/20 border-green-800">
         <span class="stat-label text-green-400">Przychody</span>
@@ -104,7 +104,7 @@
 
   <!-- Finance History -->
   <div class="card">
-    <h2 class="font-semibold text-gray-100 mb-4 flex items-center gap-2">
+    <h2 class="font-semibold text-gray-100 mb-3 md:mb-4 flex items-center gap-2">
       <TrendingUp size={18} class="text-primary-400" />
       Historia Finansowa (ostatnie 12 tygodni)
     </h2>
@@ -112,7 +112,7 @@
       <p class="text-sm text-gray-500 text-center py-8">Brak historii — rozegraj pierwszy tydzień.</p>
     {:else}
       <div class="overflow-x-auto">
-        <table class="w-full">
+        <div class="table-scroll"><table class="w-full">
           <thead>
             <tr>
               <th class="table-header">Tydzień</th>
@@ -134,16 +134,16 @@
               </tr>
             {/each}
           </tbody>
-        </table>
+        </table></div>
       </div>
     {/if}
   </div>
 
   <!-- Loans -->
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+  <div class="grid grid-cols-1 lg:grid-cols-1 md:grid-cols-2 gap-3 md:p-6">
     <!-- Active Loans -->
     <div class="card">
-      <h2 class="font-semibold text-gray-100 mb-4 flex items-center gap-2">
+      <h2 class="font-semibold text-gray-100 mb-3 md:mb-4 flex items-center gap-2">
         <Receipt size={18} class="text-yellow-400" />
         Aktywne Kredyty
       </h2>
@@ -157,7 +157,7 @@
                 <span class="font-medium text-gray-200">Kredyt #{loan.id.slice(-4)}</span>
                 <span class="badge-yellow">{loan.weeksRemaining} tyg.</span>
               </div>
-              <div class="grid grid-cols-3 gap-2 text-sm">
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
                 <div><span class="text-gray-500">Kwota:</span> <span class="text-gray-300">{loan.amount.toLocaleString('pl-PL')} PLN</span></div>
                 <div><span class="text-gray-500">Oprocentowanie:</span> <span class="text-gray-300">8%</span></div>
                 <div><span class="text-gray-500">Rata tyg.:</span> <span class="text-yellow-400">{Math.round(loan.weeklyPayment).toLocaleString('pl-PL')} PLN</span></div>
@@ -170,11 +170,11 @@
 
     <!-- Take Loan -->
     <div class="card">
-      <h2 class="font-semibold text-gray-100 mb-4 flex items-center gap-2">
+      <h2 class="font-semibold text-gray-100 mb-3 md:mb-4 flex items-center gap-2">
         <PiggyBank size={18} class="text-green-400" />
         Weź Kredyt
       </h2>
-      <div class="space-y-4">
+      <div class="space-y-2 md:space-y-4">
         <div>
           <label class="text-sm text-gray-400 mb-1 block">Kwota kredytu</label>
           <input type="range" min="5000" max="200000" step="5000" bind:value={loanAmount} class="w-full accent-primary-500" />
@@ -201,7 +201,7 @@
   </div>
 
   <!-- Overall Stats -->
-  <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+  <div class="grid grid-cols-1 md:grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
     <div class="stat-card">
       <span class="stat-label">Całkowity przychód</span>
       <span class="stat-value text-green-400">{gameStore.state.totalRevenue.toLocaleString('pl-PL')} PLN</span>

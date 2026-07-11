@@ -49,7 +49,7 @@
   );
 </script>
 
-<div class="space-y-6">
+<div class="space-y-3 md:space-y-6">
   <!-- Welcome Header -->
   <div class="flex items-center justify-between">
     <div>
@@ -63,7 +63,7 @@
   </div>
 
   <!-- KPI Cards -->
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+  <div class="grid grid-cols-1 md:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
     <!-- Cash -->
     <div class="stat-card">
       <div class="flex items-center justify-between">
@@ -122,14 +122,14 @@
   </div>
 
   <!-- Production Overview + Materials -->
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+  <div class="grid grid-cols-1 lg:grid-cols-1 md:grid-cols-2 gap-3 md:p-6">
     <!-- Production Status -->
     <div class="card">
-      <div class="flex items-center gap-2 mb-4">
+      <div class="flex items-center gap-2 mb-3 md:mb-4">
         <Factory size={18} class="text-primary-400" />
         <h2 class="font-semibold text-gray-100">Produkcja</h2>
       </div>
-      <div class="space-y-4">
+      <div class="space-y-2 md:space-y-4">
         <div class="flex justify-between text-sm">
           <span class="text-gray-400">Aktywne linie:</span>
           <span class="font-medium {activeLines > 0 ? 'text-green-400' : 'text-red-400'}">{activeLines} / {totalLines}</span>
@@ -164,7 +164,7 @@
 
     <!-- Material Stock -->
     <div class="card">
-      <div class="flex items-center gap-2 mb-4">
+      <div class="flex items-center gap-2 mb-3 md:mb-4">
         <Package size={18} class="text-primary-400" />
         <h2 class="font-semibold text-gray-100">Magazyn Surowców</h2>
       </div>
@@ -193,17 +193,17 @@
   </div>
 
   <!-- Finance Mini Chart + Active Events -->
-  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+  <div class="grid grid-cols-1 lg:grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:p-6">
     <!-- Mini Finance Chart -->
     <div class="card lg:col-span-2">
-      <div class="flex items-center gap-2 mb-4">
+      <div class="flex items-center gap-2 mb-3 md:mb-4">
         <TrendingUp size={18} class="text-green-400" />
         <h2 class="font-semibold text-gray-100">Historia Finansowa (ostatnie 6 tygodni)</h2>
       </div>
       {#if financeHistory.length === 0}
         <p class="text-sm text-gray-500 text-center py-8">Rozpocznij grę, aby zobaczyć historię finansową.</p>
       {:else}
-        <div class="flex items-end gap-2 h-40 mb-4">
+        <div class="flex items-end gap-2 h-40 mb-3 md:mb-4">
           {#each financeHistory as report}
             {@const revenueHeight = maxRevenue > 0 ? Math.max(5, (report.revenue / maxRevenue) * 100) : 5}
             {@const costHeight = maxRevenue > 0 ? Math.max(5, ((report.materialCosts + report.salaryCosts + report.maintenanceCosts) / maxRevenue) * 100) : 5}
@@ -216,7 +216,7 @@
             </div>
           {/each}
         </div>
-        <div class="flex gap-4 text-xs text-gray-400 justify-center">
+        <div class="flex gap-2 md:gap-4 text-xs text-gray-400 justify-center">
           <span class="flex items-center gap-1"><div class="w-3 h-3 bg-green-700 rounded"></div> Przychody</span>
           <span class="flex items-center gap-1"><div class="w-3 h-3 bg-red-700 rounded"></div> Koszty</span>
         </div>
@@ -225,7 +225,7 @@
 
     <!-- Active Events -->
     <div class="card">
-      <div class="flex items-center gap-2 mb-4">
+      <div class="flex items-center gap-2 mb-3 md:mb-4">
         <AlertTriangle size={18} class={recentEvents.length > 0 ? 'text-yellow-400' : 'text-gray-500'} />
         <h2 class="font-semibold text-gray-100">Wydarzenia</h2>
         {#if recentEvents.length > 0}
@@ -259,7 +259,7 @@
   <!-- Quick Actions -->
   <div class="card">
     <h2 class="font-semibold text-gray-100 mb-3">Szybkie Akcje</h2>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+    <div class="grid grid-cols-1 md:grid-cols-2 md:grid-cols-2 md:grid-cols-4 gap-3">
       <button class="btn-primary text-sm" onclick={() => gameStore.currentPage = 'employees'}>
         <Users size={14} class="inline mr-1" />
         Zatrudnij

@@ -41,7 +41,7 @@
   }
 </script>
 
-<div class="space-y-6">
+<div class="space-y-3 md:space-y-6">
   <!-- Header -->
   <div class="flex items-center justify-between">
     <div class="flex items-center gap-3">
@@ -59,12 +59,12 @@
   <!-- Active Contracts -->
   {#if channelsWithContracts.length > 0}
     <div class="card">
-      <h2 class="font-semibold text-gray-100 mb-4 flex items-center gap-2">
+      <h2 class="font-semibold text-gray-100 mb-3 md:mb-4 flex items-center gap-2">
         <Handshake size={18} class="text-green-400" />
         Aktywne Kontrakty
       </h2>
       <div class="overflow-x-auto">
-        <table class="w-full">
+        <div class="table-scroll"><table class="w-full">
           <thead>
             <tr>
               <th class="table-header">Kanał</th>
@@ -99,21 +99,21 @@
               </tr>
             {/each}
           </tbody>
-        </table>
+        </table></div>
       </div>
     </div>
   {/if}
 
   <!-- Available Channels -->
   <div class="card">
-    <h2 class="font-semibold text-gray-100 mb-4 flex items-center gap-2">
+    <h2 class="font-semibold text-gray-100 mb-3 md:mb-4 flex items-center gap-2">
       <Handshake size={18} class="text-primary-400" />
       Dostępne Kanały
     </h2>
     {#if channelsWithoutContracts.length === 0}
       <p class="text-sm text-gray-500 text-center py-6">Brak dostępnych kanałów bez kontraktu.</p>
     {:else}
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="grid grid-cols-1 md:grid-cols-1 md:grid-cols-2 gap-2 md:gap-4">
         {#each channelsWithoutContracts as ch}
           <div class="card-hover">
             <div class="flex items-start justify-between mb-3">
@@ -123,7 +123,7 @@
               </div>
               <BarChart3 size={16} class="text-gray-500" />
             </div>
-            <div class="grid grid-cols-2 gap-2 text-sm mb-3">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm mb-3">
               <div><span class="text-gray-500">Podst. marża:</span> <span class="text-gray-300">{ch.marginPercent}%</span></div>
               <div><span class="text-gray-500">Multiplikator:</span> <span class="text-gray-300">{ch.volumeMultiplier}x</span></div>
               <div><span class="text-gray-500">Stabilność:</span> <span class="text-gray-300">{ch.stability}%</span></div>
@@ -145,11 +145,11 @@
   <!-- Locked Channels -->
   {#if lockedChannels.length > 0}
     <div class="card">
-      <h2 class="font-semibold text-gray-100 mb-4 flex items-center gap-2">
+      <h2 class="font-semibold text-gray-100 mb-3 md:mb-4 flex items-center gap-2">
         <Lock size={18} class="text-gray-500" />
         Zablokowane Kanały
       </h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="grid grid-cols-1 md:grid-cols-1 md:grid-cols-2 gap-2 md:gap-4">
         {#each lockedChannels as ch}
           {@const cost = ch.reputationRequired * 500}
           {@const canUnlock = gameStore.state.reputation.overall >= ch.reputationRequired && gameStore.state.cash >= cost}
@@ -176,7 +176,7 @@
   {/if}
 
   <!-- Sales Summary -->
-  <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+  <div class="grid grid-cols-1 md:grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
     <div class="stat-card">
       <span class="stat-label">Sprzedaż tyg.</span>
       <span class="stat-value text-primary-400">{totalWeeklySales.toLocaleString('pl-PL')}</span>

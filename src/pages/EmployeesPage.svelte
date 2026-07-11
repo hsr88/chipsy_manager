@@ -67,7 +67,7 @@
   }
 </script>
 
-<div class="space-y-6">
+<div class="space-y-3 md:space-y-6">
   <!-- Header -->
   <div class="flex items-center justify-between">
     <div class="flex items-center gap-3">
@@ -85,7 +85,7 @@
 
   <!-- Current Employees -->
   <div class="card">
-    <div class="flex items-center justify-between mb-4">
+    <div class="flex items-center justify-between mb-3 md:mb-4">
       <h2 class="font-semibold text-gray-100 flex items-center gap-2">
         <Users size={18} />
         Obecni Pracownicy ({hiredEmployees.length})
@@ -93,7 +93,7 @@
     </div>
 
     <div class="overflow-x-auto">
-      <table class="w-full">
+      <div class="table-scroll"><table class="w-full">
         <thead>
           <tr>
             <th class="table-header">Pracownik</th>
@@ -199,13 +199,13 @@
             </tr>
           {/each}
         </tbody>
-      </table>
+      </table></div>
     </div>
   </div>
 
   <!-- Job Candidates -->
   <div class="card">
-    <div class="flex items-center justify-between mb-4">
+    <div class="flex items-center justify-between mb-3 md:mb-4">
       <h2 class="font-semibold text-gray-100 flex items-center gap-2">
         <UserPlus size={18} class="text-green-400" />
         Kandydaci do Zatrudnienia
@@ -219,7 +219,7 @@
       <p class="text-sm text-gray-500 text-center py-6">Brak dostępnych kandydatów. Kliknij "Odśwież listę".</p>
     {:else}
       <div class="overflow-x-auto">
-        <table class="w-full">
+        <div class="table-scroll"><table class="w-full">
           <thead>
             <tr>
               <th class="table-header">Kandydat</th>
@@ -268,7 +268,7 @@
               </tr>
             {/each}
           </tbody>
-        </table>
+        </table></div>
       </div>
       <p class="text-xs text-gray-500 mt-3">* Wymagane jest posiadanie 4-krotności tygodniowego wynagrodzenia w gotówce.</p>
     {/if}

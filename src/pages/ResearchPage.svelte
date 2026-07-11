@@ -77,14 +77,14 @@
   }
 </script>
 
-<div class="space-y-6 p-6">
+<div class="space-y-3 md:space-y-6 p-3 md:p-6">
   <!-- Header -->
-  <div class="flex flex-wrap items-center justify-between gap-4">
+  <div class="flex flex-wrap items-center justify-between gap-2 md:gap-4">
     <div class="flex items-center gap-3">
       <FlaskConical class="h-7 w-7 text-primary-400" />
       <h1 class="section-title">Badania i Rozwój</h1>
     </div>
-    <div class="flex flex-wrap items-center gap-4 text-sm text-gray-400">
+    <div class="flex flex-wrap items-center gap-2 md:gap-4 text-sm text-gray-400">
       <div class="flex items-center gap-2">
         <Award class="h-4 w-4 text-yellow-400" />
         <span>Reputacja: <strong class="text-gray-100">{reputation.overall}</strong></span>
@@ -106,7 +106,7 @@
 
   <!-- Section 1: Unlocked Flavors -->
   <section>
-    <h2 class="mb-4 flex items-center gap-2 text-lg font-semibold text-gray-100">
+    <h2 class="mb-3 md:mb-4 flex items-center gap-2 text-lg font-semibold text-gray-100">
       <CheckCircle2 class="h-5 w-5 text-green-400" />
       Odblokowane Smaki
       <span class="badge-blue text-xs">{unlockedFlavors.length}</span>
@@ -117,7 +117,7 @@
         <p class="text-gray-400">Brak odblokowanych smaków. Rozpocznij badania poniżej.</p>
       </div>
     {:else}
-      <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div class="grid grid-cols-1 gap-2 md:gap-4 md:grid-cols-1 md:grid-cols-2 lg:grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {#each unlockedFlavors as flavor (flavor.id)}
           <div class="card card-hover border {TIER_BG_COLORS[flavor.tier] || 'bg-dark-800 border-dark-700'}">
             <!-- Header -->
@@ -132,7 +132,7 @@
             </div>
 
             <!-- Stats Grid -->
-            <div class="mb-3 grid grid-cols-2 gap-2 text-sm">
+            <div class="mb-3 grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
               <div class="rounded bg-dark-950/50 p-2">
                 <p class="text-xs text-gray-500">Popularność</p>
                 <div class="progress-bar mt-1">
@@ -210,7 +210,7 @@
 
   <!-- Section 2: Locked Flavors Research -->
   <section>
-    <h2 class="mb-4 flex items-center gap-2 text-lg font-semibold text-gray-100">
+    <h2 class="mb-3 md:mb-4 flex items-center gap-2 text-lg font-semibold text-gray-100">
       <FlaskConical class="h-5 w-5 text-primary-400" />
       Badania — Nowe Smaki
       <span class="badge-gray text-xs">{lockedFlavors.length} dostępne</span>
@@ -221,7 +221,7 @@
         <p class="text-gray-400">Wszystkie smaki zostały odblokowane!</p>
       </div>
     {:else}
-      <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div class="grid grid-cols-1 gap-2 md:gap-4 md:grid-cols-1 md:grid-cols-2 lg:grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {#each lockedFlavors as flavor (flavor.id)}
           {@const canAfford = cash >= flavor.researchCost}
           <div
@@ -280,7 +280,7 @@
 
   <!-- Section 3: Available Flavors for Assignment -->
   <section>
-    <h2 class="mb-4 flex items-center gap-2 text-lg font-semibold text-gray-100">
+    <h2 class="mb-3 md:mb-4 flex items-center gap-2 text-lg font-semibold text-gray-100">
       <CheckCircle2 class="h-5 w-5 text-blue-400" />
       Dostępne Smaki do Przypisania
     </h2>

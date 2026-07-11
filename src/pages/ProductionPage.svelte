@@ -67,14 +67,14 @@
   }
 </script>
 
-<div class="space-y-6 p-6">
+<div class="space-y-3 md:space-y-6 p-3 md:p-6">
   <!-- Header -->
   <div class="flex items-center justify-between">
     <div class="flex items-center gap-3">
       <Factory class="h-7 w-7 text-primary-400" />
       <h1 class="section-title">Produkcja</h1>
     </div>
-    <div class="flex items-center gap-4 text-sm text-gray-400">
+    <div class="flex items-center gap-2 md:gap-4 text-sm text-gray-400">
       <div class="flex items-center gap-2">
         <Cpu class="h-4 w-4 text-primary-400" />
         <span>Całkowita pojemność: <strong class="text-gray-100">{totalCapacity.toLocaleString('pl-PL')}</strong> kg/tyg.</span>
@@ -88,11 +88,11 @@
 
   <!-- Section 1: Surowce -->
   <section>
-    <h2 class="mb-4 flex items-center gap-2 text-lg font-semibold text-gray-100">
+    <h2 class="mb-3 md:mb-4 flex items-center gap-2 text-lg font-semibold text-gray-100">
       <Package class="h-5 w-5 text-primary-400" />
       Surowce
     </h2>
-    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+    <div class="grid grid-cols-1 gap-2 md:gap-4 md:grid-cols-1 md:grid-cols-2 lg:grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
       {#each rawMaterials as material (material.type)}
         <div class="card card-hover">
           <div class="flex items-start justify-between">
@@ -144,12 +144,12 @@
 
   <!-- Section 2: Linie Produkcji -->
   <section>
-    <h2 class="mb-4 flex items-center gap-2 text-lg font-semibold text-gray-100">
+    <h2 class="mb-3 md:mb-4 flex items-center gap-2 text-lg font-semibold text-gray-100">
       <Factory class="h-5 w-5 text-primary-400" />
       Linie Produkcji
     </h2>
     <div class="overflow-x-auto">
-      <table class="w-full">
+      <div class="table-scroll"><table class="w-full">
         <thead>
           <tr class="table-header">
             <th class="text-left">Nazwa</th>
@@ -254,7 +254,7 @@
             </tr>
           {/each}
         </tbody>
-      </table>
+      </table></div>
     </div>
   </section>
 

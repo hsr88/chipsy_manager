@@ -42,7 +42,7 @@
   }
 </script>
 
-<div class="space-y-6">
+<div class="space-y-3 md:space-y-6">
   <!-- Header -->
   <div class="flex items-center justify-between">
     <div class="flex items-center gap-3">
@@ -59,7 +59,7 @@
 
   <!-- Active Events -->
   <div class="card">
-    <h2 class="font-semibold text-gray-100 mb-4 flex items-center gap-2">
+    <h2 class="font-semibold text-gray-100 mb-3 md:mb-4 flex items-center gap-2">
       <AlertTriangle size={18} class={activeEvents.length > 0 ? 'text-yellow-400' : 'text-gray-500'} />
       Aktywne Wydarzenia
     </h2>
@@ -100,7 +100,7 @@
 
   <!-- Event History -->
   <div class="card">
-    <h2 class="font-semibold text-gray-100 mb-4 flex items-center gap-2">
+    <h2 class="font-semibold text-gray-100 mb-3 md:mb-4 flex items-center gap-2">
       <Clock size={18} class="text-gray-400" />
       Historia Wydarzeń
     </h2>
@@ -108,7 +108,7 @@
       <p class="text-sm text-gray-500 text-center py-6">Brak historii wydarzeń.</p>
     {:else}
       <div class="overflow-x-auto max-h-96 overflow-y-auto">
-        <table class="w-full">
+        <div class="table-scroll"><table class="w-full">
           <thead class="sticky top-0 bg-dark-900">
             <tr>
               <th class="table-header">Tydzień</th>
@@ -130,14 +130,14 @@
               </tr>
             {/each}
           </tbody>
-        </table>
+        </table></div>
       </div>
     {/if}
   </div>
 
   <!-- Game Log -->
   <div class="card">
-    <h2 class="font-semibold text-gray-100 mb-4 flex items-center gap-2">
+    <h2 class="font-semibold text-gray-100 mb-3 md:mb-4 flex items-center gap-2">
       <Clock size={18} class="text-gray-400" />
       Log Gry
     </h2>
