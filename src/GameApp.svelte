@@ -90,6 +90,18 @@
           </button>
         </div>
       </div>
+
+      <!-- Author Footer -->
+      <div class="p-3 text-center" style="border-top: 2px solid #4A3018;">
+        <p style="font-family: 'Press Start 2P', monospace; font-size: 0.35rem; color: #887858; line-height: 1.8;">
+          by <a href="https://github.com/hsr88/" target="_blank" rel="noopener" style="color: #E8A820; text-decoration: none;">hsr88</a>
+        </p>
+        <p style="font-family: 'Press Start 2P', monospace; font-size: 0.3rem; color: #685838; line-height: 1.8;">
+          <a href="https://hsr.gg/" target="_blank" rel="noopener" style="color: #887858; text-decoration: none;">hsr.gg</a>
+          |
+          <a href="https://github.com/hsr88/chipsy_manager" target="_blank" rel="noopener" style="color: #887858; text-decoration: none;">github</a>
+        </p>
+      </div>
     </aside>
 
     <!-- Main Content -->
